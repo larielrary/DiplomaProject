@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/mainTextView"
+        android:layout_width="321dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="45dp"
+        android:inputType="textMultiLine"
+        android:text="Учреждение образования «Гомельский государственный технический университет имени П.О.Сухого» (ГГТУ им. П.О. Сухого)"
+        android:textAlignment="center"
+        android:textColor="@color/purple_200"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/addressTextView"
+        android:layout_width="314dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="textMultiLine"
+        android:text="Пр-т Октября, 48, 246746, г. Гомель, Республика Беларусь"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainTextView"
+        android:textAlignment="center"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/phoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="53dp"
+        android:inputType="textMultiLine"
+        android:text="Телефон:"
+        android:textColor="@color/purple_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressTextView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/phoneValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="91dp"
+        android:inputType="phone"
+        android:text="(+375 232) 22-46-36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/phoneTextView"
+        app:layout_constraintTop_toBottomOf="@+id/addressTextView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/faxTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="29dp"
+        android:inputType="textMultiLine"
+        android:text="Факс"
+        android:textColor="@color/purple_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneTextView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/faxValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="91dp"
+        android:inputType="phone"
+        android:text="(+375 232) 26-02-87"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/faxTextView"
+        app:layout_constraintTop_toBottomOf="@+id/phoneValueTextView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/emailGstuTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="29dp"
+        android:inputType="textMultiLine"
+        android:text="E-mail"
+        android:textColor="@color/purple_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/faxTextView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/emailGstuValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="123dp"
+        android:inputType="textEmailAddress"
+        android:text="rector@gstu.by"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/emailGstuTextView"
+        app:layout_constraintTop_toBottomOf="@+id/faxValueTextView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/siteValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="146dp"
+        android:inputType="textWebEditText"
+        android:text="http://www.gstu.by"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailGstuValueTextView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/workTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="29dp"
+        android:inputType="textMultiLine"
+        android:text="Режим работы"
+        android:textColor="@color/purple_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/siteValueTextView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/workTimeValueTextView"
+        android:layout_width="176dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="45dp"
+        android:inputType="textMultiLine"
+        android:text="понедельник - пятница  8.00 - 12.00;  13.00 - 17.00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/workTimeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/siteValueTextView"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

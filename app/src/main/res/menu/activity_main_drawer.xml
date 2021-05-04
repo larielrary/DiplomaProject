@@ -5,16 +5,30 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_site"
+            android:icon="@drawable/browser"
+            android:title="Наш сайт" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_map"
+            android:icon="@drawable/location"
+            android:title="Университет на карте" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/calendar"
+            android:title="Календарь"/>
+        <item
+            android:id="@+id/nav_calc"
+            android:icon="@drawable/calculate"
+            android:title="Калькулятор баллов" />
+        <item
+            android:id="@+id/nav_speciality"
+            android:icon="@drawable/speciality"
+            android:title="Специальности"
+            />
+        <item
+            android:id="@+id/nav_contacts"
+            android:icon="@drawable/contact"
+            android:title="Контакты"
+            />
     </group>
 </menu>

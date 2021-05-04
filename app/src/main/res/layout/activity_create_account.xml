@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".CreateAccountActivity">
+
+        <EditText
+            android:id="@+id/Surname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Фамилия"
+            android:inputType="textMultiLine"
+
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Имя"
+            android:inputType="textMultiLine"
+
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/Surname" />
+
+        <EditText
+            android:id="@+id/Patronymic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Отчество"
+            android:inputType="textMultiLine"
+
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/Name" />
+
+        <EditText
+            android:id="@+id/Passport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Серия и номер паспорта"
+            android:inputType="textMultiLine"
+
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/Patronymic" />
+
+        <EditText
+            android:id="@+id/Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Адрес"
+            android:inputType="textMultiLine"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/Passport" />
+        <EditText
+            android:id="@+id/DateOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Дата рождения"
+            android:inputType="date"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/Address" />
+
+        <EditText
+            android:id="@+id/PhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Номер телефона"
+            android:inputType="phone"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/DateOfBirth"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/FormTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Выберите форму обучения"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PhoneNumber"
+            tools:ignore="MissingConstraints" />
+
+        <Spinner
+            android:id="@+id/EducationForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Форма обучения"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FormTextView"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/IsAimedTextView"
+            android:layout_width="252dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Участие в конкурсе по целевому направлению"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EducationForm"
+            tools:ignore="MissingConstraints" />
+
+
+        <CheckBox
+            android:id="@+id/IsAimed"
+            android:layout_width="30dp"
+            android:layout_height="21dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/IsAimedTextView"
+            app:layout_constraintTop_toBottomOf="@+id/EducationForm"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/IsWithoutExamsTextView"
+            android:layout_width="300dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Участие в конкурсе без вступительных экзаменов"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IsAimedTextView"
+            tools:ignore="MissingConstraints" />
+
+        <CheckBox
+            android:id="@+id/IsWithoutExams"
+            android:layout_width="30dp"
+            android:layout_height="21dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/IsWithoutExamsTextView"
+            app:layout_constraintTop_toBottomOf="@+id/IsAimed"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/IsBudgetsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Участие в конкурсе на бюджет"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IsWithoutExamsTextView"
+            tools:ignore="MissingConstraints" />
+
+
+        <CheckBox
+            android:id="@+id/IsBudget"
+            android:layout_width="30dp"
+            android:layout_height="21dp"
+            android:layout_marginLeft="148dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/IsBudgetsTextView"
+            app:layout_constraintTop_toBottomOf="@+id/IsWithoutExams"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/IsOutOfCompetitionsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Участие вне конкурса"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IsBudgetsTextView"
+            tools:ignore="MissingConstraints" />
+
+
+        <CheckBox
+            android:id="@+id/IsOutOfCompetitions"
+            android:layout_width="30dp"
+            android:layout_height="21dp"
+            android:layout_marginLeft="216dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/IsOutOfCompetitionsTextView"
+            app:layout_constraintTop_toBottomOf="@+id/IsBudget"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/ProfSubj1EE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Балл по первому профильному предмету"
+            android:inputType="textMultiLine"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/IsOutOfCompetitions" />
+
+        <EditText
+            android:id="@+id/ProfSubj2EE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Балл по второму профильному предмету"
+            android:inputType="textMultiLine"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/ProfSubj1EE" />
+
+        <EditText
+            android:id="@+id/Subj3EE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Балл по третьему предмету"
+            android:inputType="textMultiLine"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/ProfSubj2EE" />
+
+        <EditText
+            android:id="@+id/CertificateScoreX10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="Средний балл документа об образовании * 10"
+            android:inputType="textMultiLine"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/Subj3EE" />
+
+        <TextView
+            android:id="@+id/IsAgreeForPaymentTextView"
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:inputType="textMultiLine"
+            android:text="Согласие на участие в конкурсе на платную форму обучения"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CertificateScoreX10"
+            tools:ignore="MissingConstraints" />
+
+
+        <CheckBox
+            android:id="@+id/IsAgreeForPayment"
+            android:layout_width="30dp"
+            android:layout_height="21dp"
+            android:layout_marginLeft="76dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/IsAgreeForPaymentTextView"
+            app:layout_constraintTop_toBottomOf="@+id/CertificateScoreX10"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/CreateButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:enabled="false"
+            android:onClick="onCreateModelButtonClick"
+            android:text="Добавить данные"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IsAgreeForPaymentTextView" />
+
+        <Button
+            android:id="@+id/BackButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:onClick="onBackButtonClick"
+            android:text="Назад"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IsAgreeForPaymentTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

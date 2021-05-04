@@ -3,23 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_calendar">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.diplomaproject.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_site"
+        android:name="com.example.diplomaproject.ui.calculation.CalculationFragment"
+        android:label="Наш сайт"
+        tools:layout="@layout/fragment_calculator" />
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="com.example.diplomaproject.ui.map.MapsFragment"
+        android:label="Университет на карте"
+        tools:layout="@layout/fragment_maps" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.diplomaproject.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_calendar"
+        android:name="com.example.diplomaproject.ui.calendar.CalendarFragment"
+        android:label="Календарь"
+        tools:layout="@layout/fragment_calendar" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.diplomaproject.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_calc"
+        android:name="com.example.diplomaproject.ui.calculation.CalculationFragment"
+        android:label="Калькулятор баллов"
+        tools:layout="@layout/fragment_calculator" />
+    <fragment
+        android:id="@+id/nav_speciality"
+        android:name="com.example.diplomaproject.ui.speciality.SpecialityInfoFragment"
+        android:label="Специальности"
+        tools:layout="@layout/fragment_speciality_info" />
+
+    <fragment
+        android:id="@+id/nav_contacts"
+        android:name="com.example.diplomaproject.ui.contacts.ContactsFragment"
+        android:label="Контакты"
+        tools:layout="@layout/fragment_contacts" />
 </navigation>
