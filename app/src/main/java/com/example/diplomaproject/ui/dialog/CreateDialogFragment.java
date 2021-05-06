@@ -29,7 +29,7 @@ public class CreateDialogFragment extends DialogFragment {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                       // creatable.(phone);
+                       // creatable.();
                     }
                 })
                 .setNegativeButton("Отмена", null)

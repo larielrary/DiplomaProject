@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/calculateFragment">
 
 
     <EditText
@@ -68,8 +69,8 @@
         tools:layout_editor_absoluteX="56dp"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/resultEdit"
+    <TextView
+        android:id="@+id/resultText"
         android:layout_width="214dp"
         android:layout_height="37dp"
         android:layout_marginStart="16dp"
@@ -86,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
-        android:onClick="onCalculateBtnClick"
+        android:onClick="onCalculateFragmentViewClick"
         android:text="Подсчитать"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/certificateEdit" />

@@ -1,23 +1,45 @@
 package com.example.diplomaproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diplomaproject.ui.dialog.Creatable;
 
-public class CreateAccountActivity extends AppCompatActivity implements Creatable {
+import java.util.Calendar;
 
+public class CreateAccountActivity extends AppCompatActivity implements Creatable, AdapterView.OnItemSelectedListener {
+
+    Spinner spinner;
+    String[] paths = {"item 1", "item 2", "item 3"};
+    TextView currentDate;
+    Calendar date = Calendar.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
+        spinner = findViewById(R.id.EducationForm);
+        currentDate = findViewById(R.id.DateOfBirth);
+        setInitialDate();
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, paths);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
     }
 
     public void onCreateModelButtonClick(View view) {
         try {
+
             /*databaseAdapter = new DatabaseAdapter(this.getApplicationContext());
             int id = Integer.parseInt(((EditText)findViewById(R.id.Id)).getText().toString());
             String fio = ((EditText)findViewById(R.id.Surname)).getText().toString();
@@ -42,6 +64,59 @@ public class CreateAccountActivity extends AppCompatActivity implements Creatabl
         startActivity(intent);
     }
 
-    public void onBackButtonClick(View view) {
+    public void onSetDateBtnClick(View view){
+        new DatePickerDialog(CreateAccountActivity.this, d,
+                date.get(Calendar.YEAR),
+                date.get(Calendar.MONTH),
+                date.get(Calendar.DAY_OF_MONTH))
+                .show();
     }
+
+    private void setInitialDate() {
+
+        currentDate.setText(DateUtils.formatDateTime(this,
+                date.getTimeInMillis(),
+                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR));
+    }
+
+    // установка обработчика выбора даты
+    DatePickerDialog.OnDateSetListener d=new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            date.set(Calendar.YEAR, year);
+            date.set(Calendar.MONTH, monthOfYear);
+            date.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            setInitialDate();
+        }
+    };
+    public void onBackButtonClick(View view){
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        closeActivity();
+    }
+
+    private void closeActivity() {
+        this.finish();
+    }
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+
+        switch (position) {
+            case 0:
+                // Whatever you want to happen when the first item gets selected
+                break;
+            case 1:
+                // Whatever you want to happen when the second item gets selected
+                break;
+            case 2:
+                // Whatever you want to happen when the thrid item gets selected
+                break;
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        // TODO Auto-generated method stub
+    }
+
 }

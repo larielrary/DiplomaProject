@@ -1,8 +1,8 @@
 package com.example.diplomaproject.ui.map;
 
-import androidx.fragment.app.FragmentActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diplomaproject.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -12,7 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -30,10 +30,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
         LatLng gstu = new LatLng(52.4068247, 30.9370456);
         googleMap.addMarker(new MarkerOptions().position(gstu)
                 .title("ГГТУ им. П. О. Сухого"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(gstu));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gstu, 15));
     }
 }

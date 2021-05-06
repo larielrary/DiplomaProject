@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.diplomaproject.ui.authorization.LoginActivity;
+import com.example.diplomaproject.ui.calculation.CalculationFragment;
 import com.example.diplomaproject.ui.sendemail.SendEmailActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -23,6 +25,7 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    public CalculationFragment calculationFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
     @Override
@@ -75,7 +79,16 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void onCalculateBtnClick (View view) {
-
+    public void onCalculateFragmentViewClick (View view) {
+        getSupportFragmentManager().beginTransaction().add(R.id.nav_calc, new CalculationFragment(),
+                "tag").commit();
+        CalculationFragment calculationFragment = (CalculationFragment)getSupportFragmentManager().
+                findFragmentById(R.id.nav_calc);
+        //Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nav_calc);
+        if (calculationFragment != null && calculationFragment.isVisible()) {
+            if (calculationFragment instanceof CalculationFragment) {
+                ((CalculationFragment) calculationFragment).onCalculateBtnClick(view);
+            }
+        }
     }
 }
