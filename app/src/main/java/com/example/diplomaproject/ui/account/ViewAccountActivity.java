@@ -1,13 +1,12 @@
-package com.example.diplomaproject;
+package com.example.diplomaproject.ui.account;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.diplomaproject.R;
 import com.example.diplomaproject.data.database.ConnectionHelper;
 
 import java.sql.Connection;
@@ -41,17 +40,9 @@ public class ViewAccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_account);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void onBackButtonClick(View view){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-        closeActivity();
-    }
-
-    private void closeActivity() {
-        this.finish();
-    }
 
     public void viewInfo(){
         try {

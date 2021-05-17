@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_main_page"
+            android:icon="@drawable/home"
+            android:title="Главная" />
+        <item
             android:id="@+id/nav_site"
             android:icon="@drawable/browser"
             android:title="Наш сайт" />
@@ -29,6 +33,11 @@
             android:id="@+id/nav_contacts"
             android:icon="@drawable/contact"
             android:title="Контакты"
+            />
+        <item
+            android:id="@+id/nav_mail"
+            android:icon="@drawable/mail"
+            android:title="Связь с разработчиком"
             />
     </group>
 </menu>

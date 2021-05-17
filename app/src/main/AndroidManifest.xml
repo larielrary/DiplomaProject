@@ -23,31 +23,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DiplomaProject">
-        <activity android:name=".ui.speciality.SpecialityActivity"></activity>
         <activity
-            android:name=".ViewAccountActivity"
+            android:name=".ui.web.WebActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Наш сайт"/>
+        <activity
+            android:name=".ui.speciality.SpecialityActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Специальности"/>
+        <activity
+            android:name=".ui.account.ViewAccountActivity"
             android:label="Просмотр аккаунта"
-            android:noHistory="true" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ui.authorization.LoginActivity"
             android:label="Вход в личный кабинет"
-            android:noHistory="true" />
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".CreateAccountActivity"
+            android:name=".ui.account.CreateAccountActivity"
             android:label="Создание аккаунта"
-            android:noHistory="true" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ui.sendemail.SendEmailActivity"
             android:label="Письмо разработчику"
-            android:noHistory="true" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ui.calculation.CalculationActivity"
             android:label="Калькулятор баллов"
-            android:noHistory="true" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:label="Абитуриент ГГТУ"
-            android:noHistory="true"
             android:theme="@style/Theme.DiplomaProject.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -69,7 +75,8 @@
 
         <activity
             android:name=".ui.map.MapsActivity"
-            android:label="Университет на карте" />
+            android:label="Университет на карте"
+            android:parentActivityName=".MainActivity" />
 
         <uses-library
             android:name="com.google.android.maps"

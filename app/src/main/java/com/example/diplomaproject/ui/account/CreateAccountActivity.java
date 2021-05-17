@@ -1,4 +1,4 @@
-package com.example.diplomaproject;
+package com.example.diplomaproject.ui.account;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.diplomaproject.MainActivity;
+import com.example.diplomaproject.R;
 import com.example.diplomaproject.ui.dialog.Creatable;
 
 import java.util.Calendar;
@@ -35,6 +37,7 @@ public class CreateAccountActivity extends AppCompatActivity implements Creatabl
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     public void onCreateModelButtonClick(View view) {
@@ -88,15 +91,6 @@ public class CreateAccountActivity extends AppCompatActivity implements Creatabl
             setInitialDate();
         }
     };
-    public void onBackButtonClick(View view){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-        closeActivity();
-    }
-
-    private void closeActivity() {
-        this.finish();
-    }
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
 

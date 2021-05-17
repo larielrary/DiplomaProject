@@ -2,15 +2,11 @@ package com.example.diplomaproject.ui.sendemail;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.view.Menu;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.diplomaproject.MainActivity;
 import com.example.diplomaproject.R;
 
 public class SendEmailActivity extends AppCompatActivity {
@@ -22,6 +18,7 @@ public class SendEmailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_email);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         editTextSubject = (EditText)findViewById(R.id.subjEditText);
         editTextMessage = (EditText)findViewById(R.id.messageEditText);
 
@@ -43,16 +40,5 @@ public class SendEmailActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(email, "Выберите почтовый клиент:"));
         });
     }
-
-    public void onEmailBackButtonClick(View view){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-        closeActivity();
-    }
-
-    private void closeActivity() {
-        this.finish();
-    }
-
 
 }

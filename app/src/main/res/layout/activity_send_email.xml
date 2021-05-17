@@ -62,15 +62,5 @@
         android:layout_marginTop="50dp"
         android:text="Отправить" />
 
-    <Button
-        android:id="@+id/emailBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/messageEditText"
-        android:layout_alignLeft="@+id/messageEditText"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="50dp"
-        android:onClick="onEmailBackButtonClick"
-        android:text="Назад" />
 
 </RelativeLayout>

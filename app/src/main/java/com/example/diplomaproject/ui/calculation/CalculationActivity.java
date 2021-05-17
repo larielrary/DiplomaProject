@@ -1,7 +1,6 @@
 package com.example.diplomaproject.ui.calculation;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.diplomaproject.MainActivity;
 import com.example.diplomaproject.R;
 
 public class CalculationActivity extends AppCompatActivity {
@@ -25,6 +23,7 @@ public class CalculationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculation);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     @SuppressLint("SetTextI18n")
     public void onCalculateBtnClick (View view){
@@ -41,13 +40,4 @@ public class CalculationActivity extends AppCompatActivity {
         result.setText(Integer.toString(res));
     }
 
-    public void onBackBtnClick(View view){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-        closeActivity();
-    }
-
-    private void closeActivity() {
-        this.finish();
-    }
 }

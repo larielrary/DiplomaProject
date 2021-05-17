@@ -15,15 +15,11 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.diplomaproject.ui.authorization.LoginActivity;
-import com.example.diplomaproject.ui.calculation.CalculationFragment;
-import com.example.diplomaproject.ui.sendemail.SendEmailActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    public CalculationFragment calculationFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +27,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> {
-            Intent intent = new Intent(getBaseContext(), SendEmailActivity.class);
-            startActivity(intent);
-        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_site, R.id.nav_map, R.id.nav_calendar, R.id.nav_calc, R.id.nav_speciality)
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_main_page,
+                R.id.nav_site, R.id.nav_map, R.id.nav_calendar, R.id.nav_calc, R.id.nav_speciality,
+                R.id.nav_contacts)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

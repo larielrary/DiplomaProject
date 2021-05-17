@@ -12,10 +12,15 @@ public class DatabaseAdapter {
     ConnectionHelper connectionHelper;
     Connection connection;
     String ConnectionResult = "";
+
+    public DatabaseAdapter(){
+
+    }
+
     public void InsertEnrollee(){
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            connection = connectionHelper.connectionClass();
+            connection = connectionHelper.connection();
             if (connection != null) {
                 String query = "Insert ......";
                 Statement statement = connection.createStatement();
@@ -36,7 +41,7 @@ public class DatabaseAdapter {
     public void InsertPriority(){
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            connection = connectionHelper.connectionClass();
+            connection = connectionHelper.connection();
             if (connection != null) {
                 String query = "Insert ......";
                 Statement statement = connection.createStatement();
@@ -57,7 +62,7 @@ public class DatabaseAdapter {
     public void Select(){
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            connection = connectionHelper.connectionClass();
+            connection = connectionHelper.connection();
             if (connection != null) {
                 String query = "Select * from FACULTY";
                 Statement statement = connection.createStatement();
@@ -78,7 +83,7 @@ public class DatabaseAdapter {
     public boolean Authorization(String email, String pass) throws SQLException {
 
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            connection = connectionHelper.connectionClass();
+            connection = connectionHelper.connection();
             if (connection != null) {
                 String query = "Select * from ENROLLEEUSER Where Login = " + email +
                         "and Password = " + pass;
@@ -98,7 +103,7 @@ public class DatabaseAdapter {
     public boolean Registration(String email, String pass) throws SQLException {
 
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            connection = connectionHelper.connectionClass();
+            connection = connectionHelper.connection();
             if (connection != null) {
                 String query = "Insert into ENROLLEEUSER VALUES ('"+ email + "', '" + pass + "')";
                 Statement statement = connection.createStatement();

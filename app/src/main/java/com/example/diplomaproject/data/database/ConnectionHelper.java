@@ -11,7 +11,7 @@ public class ConnectionHelper {
 
     String username, pass, host, port, database;
     @SuppressLint("NewApi")
-    public Connection connectionClass(){
+    public Connection connection(){
         host = "gstuenrollee.database.windows.net";
         database = "EnrolleeDB";
         username = "enrolleeadmin";

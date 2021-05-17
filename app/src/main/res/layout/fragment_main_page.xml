@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mainpage.MainPageFragment">
+
+    <ImageButton
+        android:id="@+id/admission"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/admission"
+        app:layout_constraintRight_toRightOf="@+id/sokr"
+        app:layout_constraintTop_toBottomOf="@+id/sokr"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/campaign"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/campaign"
+        app:layout_constraintLeft_toLeftOf="@+id/speciality"
+        app:layout_constraintTop_toBottomOf="@+id/speciality"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/speciality"
+        android:layout_width="345dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/specialnosti"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/regulations"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/regulations"
+        app:layout_constraintRight_toRightOf="@+id/speciality"
+        app:layout_constraintTop_toBottomOf="@+id/speciality"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/sokr"
+        android:layout_width="345dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/sokr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campaign"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/excursia"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/excursia"
+        app:layout_constraintLeft_toLeftOf="@id/sokr"
+        app:layout_constraintTop_toBottomOf="@+id/sokr"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

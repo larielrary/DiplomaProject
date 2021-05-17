@@ -3,13 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_calendar">
+    app:startDestination="@+id/nav_main_page">
+
+    <fragment
+        android:id="@+id/nav_main_page"
+        android:name="com.example.diplomaproject.ui.mainpage.MainPageFragment"
+        android:label="Главная"
+        tools:layout="@layout/fragment_main_page" />
 
     <fragment
         android:id="@+id/nav_site"
-        android:name="com.example.diplomaproject.ui.calculation.CalculationFragment"
+        android:name="com.example.diplomaproject.ui.web.SiteFragment"
         android:label="Наш сайт"
-        tools:layout="@layout/fragment_calculator" />
+        tools:layout="@layout/fragment_site" />
+
     <fragment
         android:id="@+id/nav_map"
         android:name="com.example.diplomaproject.ui.map.MapsFragment"
@@ -27,6 +34,7 @@
         android:name="com.example.diplomaproject.ui.calculation.CalculationFragment"
         android:label="Калькулятор баллов"
         tools:layout="@layout/fragment_calculator" />
+
     <fragment
         android:id="@+id/nav_speciality"
         android:name="com.example.diplomaproject.ui.speciality.SpecialityInfoFragment"
@@ -38,4 +46,9 @@
         android:name="com.example.diplomaproject.ui.contacts.ContactsFragment"
         android:label="Контакты"
         tools:layout="@layout/fragment_contacts" />
+    <fragment
+        android:id="@+id/nav_mail"
+        android:name="com.example.diplomaproject.ui.sendemail.SendMailFragment"
+        android:label="Связь с разработчиком"
+        tools:layout="@layout/fragment_send_mail" />
 </navigation>

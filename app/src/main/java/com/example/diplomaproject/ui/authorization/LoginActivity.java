@@ -7,10 +7,9 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.diplomaproject.CreateAccountActivity;
-import com.example.diplomaproject.MainActivity;
+import com.example.diplomaproject.ui.account.CreateAccountActivity;
 import com.example.diplomaproject.R;
-import com.example.diplomaproject.ViewAccountActivity;
+import com.example.diplomaproject.ui.account.ViewAccountActivity;
 import com.example.diplomaproject.data.database.ConnectionHelper;
 import com.example.diplomaproject.data.database.DatabaseAdapter;
 
@@ -29,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         emailEdit = findViewById(R.id.editTextEmail);
         passEdit = findViewById(R.id.editTextPassword);
 
@@ -103,13 +102,4 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void onBackBtnClick(View view){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-        closeActivity();
-    }
-
-    private void closeActivity() {
-        this.finish();
-    }
 }
