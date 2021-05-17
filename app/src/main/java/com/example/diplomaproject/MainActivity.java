@@ -2,25 +2,23 @@ package com.example.diplomaproject;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.Menu;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.diplomaproject.ui.authorization.LoginActivity;
 import com.example.diplomaproject.ui.calculation.CalculationFragment;
 import com.example.diplomaproject.ui.sendemail.SendEmailActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -79,16 +77,4 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void onCalculateFragmentViewClick (View view) {
-        getSupportFragmentManager().beginTransaction().add(R.id.nav_calc, new CalculationFragment(),
-                "tag").commit();
-        CalculationFragment calculationFragment = (CalculationFragment)getSupportFragmentManager().
-                findFragmentById(R.id.nav_calc);
-        //Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nav_calc);
-        if (calculationFragment != null && calculationFragment.isVisible()) {
-            if (calculationFragment instanceof CalculationFragment) {
-                ((CalculationFragment) calculationFragment).onCalculateBtnClick(view);
-            }
-        }
-    }
 }

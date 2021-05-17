@@ -23,22 +23,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DiplomaProject">
+        <activity android:name=".ui.speciality.SpecialityActivity"></activity>
         <activity
             android:name=".ViewAccountActivity"
-            android:noHistory="true"
-            android:label="Просмотр аккаунта"/>
+            android:label="Просмотр аккаунта"
+            android:noHistory="true" />
         <activity
             android:name=".ui.authorization.LoginActivity"
-            android:noHistory="true"
-            android:label="Вход в личный кабинет"/>
+            android:label="Вход в личный кабинет"
+            android:noHistory="true" />
         <activity
             android:name=".CreateAccountActivity"
-            android:noHistory="true"
-            android:label="Создание аккаунта"/>
+            android:label="Создание аккаунта"
+            android:noHistory="true" />
         <activity
             android:name=".ui.sendemail.SendEmailActivity"
-            android:noHistory="true"
-            android:label="Письмо разработчику"/>
+            android:label="Письмо разработчику"
+            android:noHistory="true" />
+        <activity
+            android:name=".ui.calculation.CalculationActivity"
+            android:label="Калькулятор баллов"
+            android:noHistory="true" />
         <activity
             android:name=".MainActivity"
             android:label="Абитуриент ГГТУ"
@@ -50,7 +55,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -59,7 +63,6 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDgDz0Lyg97G_-Youb2HlLsCwuaa9IFouY" />

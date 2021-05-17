@@ -1,5 +1,6 @@
 package com.example.diplomaproject.ui.speciality;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,9 @@ public class SpecialityInfoFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_speciality_info, container, false);
-
+        Intent intent = new Intent(getActivity(), SpecialityActivity.class);
+        startActivity(intent);
         return root;
     }
+
 }

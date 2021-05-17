@@ -1,11 +1,11 @@
 package com.example.diplomaproject.ui.authorization;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diplomaproject.CreateAccountActivity;
 import com.example.diplomaproject.MainActivity;
@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         }*/
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            connection = connectionHelper.connectionClass();
+            connection = connectionHelper.connection();
             if (connection != null) {
                 String query = "SELECT UserID FROM ENROLLEEUSER WHERE Login='" + email +
                         "' AND Password='" + pass + "'";
@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onRegisterBtnClick(View view) throws SQLException {
         String email = emailEdit.getText().toString();
         String pass = passEdit.getText().toString();
+        databaseAdapter = new DatabaseAdapter();
         /*boolean checkRegistration = databaseAdapter.Registration(email, pass);
         if(checkRegistration){
             //Открыть личный кабинет в режиме заполнения
@@ -84,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         }*/
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
-            connection = connectionHelper.connectionClass();
+            connection = connectionHelper.connection();
             if (connection != null) {
                 String query = "INSERT INTO ENROLLEEUSER VALUES ('"+
                         email + "', '" + pass + "')";

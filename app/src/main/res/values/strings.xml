@@ -21,4 +21,9 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="fais_link"><a href="https://fais.gstu.by/">Факультет автоматизированных информационных систем </a></string>
+    <string name="mtf_link"><a href="https://mtf.gstu.by/">Механико-технологический факультет </a></string>
+    <string name="msf_link"><a href="https://msf.gstu.by/">Машиностроительный факультет </a></string>
+    <string name="gef_link"><a href="https://gef.gstu.by/">Гуманитарно-экономический факультет </a></string>
+    <string name="ef_link"><a href="https://ef.gstu.by/">Энергетический факультет </a></string>
 </resources>
