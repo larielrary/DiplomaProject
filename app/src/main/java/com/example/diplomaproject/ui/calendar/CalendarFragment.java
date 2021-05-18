@@ -1,7 +1,10 @@
 package com.example.diplomaproject.ui.calendar;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,21 +31,18 @@ public class CalendarFragment extends Fragment{
     CalendarView calendarView;
     String ConnectionResult;
     TextView eventTitle;
-    TextView eventURL;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState){
 
         View root = inflater.inflate(R.layout.fragment_calendar, container, false);
         calendarView = root.findViewById(R.id.calendarView);
         eventTitle = root.findViewById(R.id.eventTitle);
-        eventURL = root.findViewById(R.id.eventURL);
 
         fillDates();
 
         calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
             // display the selected date by using a toast
             fillCalendar(year + "-0" + (month + 1) + "-0" + dayOfMonth);
-            //Toast.makeText(root.getContext(), dayOfMonth + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
 
         });
 
@@ -110,6 +110,10 @@ public class CalendarFragment extends Fragment{
 
     public void setEvent(String title, String url){
         eventTitle.setText(title);
-        eventURL.setText(url);
+        eventTitle.setOnClickListener(v -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(browserIntent);
+        });
+        eventTitle.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }
