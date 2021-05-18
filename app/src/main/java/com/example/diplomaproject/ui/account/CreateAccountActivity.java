@@ -8,7 +8,6 @@ import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -17,7 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.diplomaproject.R;
 import com.example.diplomaproject.data.database.ConnectionHelper;
+import com.example.diplomaproject.ui.authorization.LoginActivity;
 import com.example.diplomaproject.ui.dialog.Creatable;
+import com.example.diplomaproject.ui.dialog.CreateDialogFragment;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -30,7 +31,6 @@ import java.util.Date;
 public class CreateAccountActivity extends AppCompatActivity implements Creatable {
 
     Spinner spinner;
-    String[] paths = {"item 1", "item 2", "item 3"};
     String ConnectionResult;
     Connection connection;
     int USER_ID;
@@ -48,7 +48,7 @@ public class CreateAccountActivity extends AppCompatActivity implements Creatabl
         currentDate = findViewById(R.id.DateOfBirth);
         setInitialDate();
         fillSpinner();
-        //spinner.setOnItemSelectedListener(this);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
         USER_ID = intent.getIntExtra("userId", 0);
@@ -81,77 +81,8 @@ public class CreateAccountActivity extends AppCompatActivity implements Creatabl
     }
 
     public void onCreateModelButtonClick(View view) {
-        try {
-            //databaseAdapter = new DatabaseAdapter(this.getApplicationContext());
-            String surname = ((EditText)findViewById(R.id.Surname)).getText().toString();
-            String name = ((EditText)findViewById(R.id.Name)).getText().toString();
-            String patronymic = ((EditText)findViewById(R.id.Patronymic)).getText().toString();
-            String passport = ((EditText)findViewById(R.id.Passport)).getText().toString();
-            String address = ((EditText)findViewById(R.id.Address)).getText().toString();
-
-            String oldDateString = ((TextView)findViewById(R.id.DateOfBirth)).getText().toString();  // where startDate is your TextView
-            String newDateString;
-
-            @SuppressLint("SimpleDateFormat")
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(OLD_FORMAT);
-            Date date = simpleDateFormat.parse(oldDateString);
-            simpleDateFormat.applyPattern(NEW_FORMAT);
-            newDateString = simpleDateFormat.format(date);
-            Date newDate = simpleDateFormat.parse(newDateString);
-            java.sql.Date sqlDate = new java.sql.Date(newDate.getTime());
-            String phone = ((EditText)findViewById(R.id.PhoneNumber)).getText().toString();
-
-            String educationForm = spinner.getSelectedItem().toString();
-
-            boolean isAimed = ((CheckBox) findViewById(R.id.IsAimed)).isChecked();
-            boolean isWithoutExams = ((CheckBox) findViewById(R.id.IsWithoutExams)).isChecked();
-            boolean isBudget = ((CheckBox) findViewById(R.id.IsBudget)).isChecked();
-            boolean isOutOfCompetitions = ((CheckBox) findViewById(R.id.IsOutOfCompetitions)).isChecked();
-
-            String profSubj1EE = ((EditText)findViewById(R.id.ProfSubj1EE)).getText().toString();
-            String profSubj2EE = ((EditText)findViewById(R.id.ProfSubj2EE)).getText().toString();
-            String subj3EE = ((EditText)findViewById(R.id.Subj3EE)).getText().toString();
-            String certificateScoreX10 = ((EditText)findViewById(R.id.CertificateScoreX10)).getText().toString();
-
-            boolean isAgreeForPayment = ((CheckBox) findViewById(R.id.IsAgreeForPayment)).isChecked();
-
-
-            /*if(fio.length() != 0 && address.length() != 0) {
-
-            }*/
-
-            try {
-                ConnectionHelper connectionHelper = new ConnectionHelper();
-                connection = connectionHelper.connection();
-                if (connection != null) {
-                    String query = "INSERT INTO ENROLLEE VALUES (" + USER_ID + ", N'" + surname + "', N'" +
-                            name + "', N'" + patronymic + "', N'" + passport + "', N'" + address +
-                            "', '" + sqlDate + "', '" + phone + "', " + getFormId(educationForm) +
-                            ", " + convertBooleanToInt(isAimed) + ", " +
-                            convertBooleanToInt(isWithoutExams) + ", " +
-                            convertBooleanToInt(isBudget) + ", " +
-                            convertBooleanToInt(isOutOfCompetitions) + ", " +
-                            Integer.parseInt(profSubj1EE) + ", " + Integer.parseInt(profSubj2EE) +
-                            ", " + Integer.parseInt(subj3EE)
-                            + ", " + Double.parseDouble(certificateScoreX10) + ", " +
-                            convertBooleanToInt(isAgreeForPayment) + ")";
-                    Statement statement = connection.createStatement();
-                    statement.executeUpdate(query);
-
-                } else {
-                    ConnectionResult = "Check Connection";
-                }
-            } catch (Exception exception){
-                ConnectionResult = exception.getMessage();
-            }
-
-
-
-
-        }
-        catch (Exception exception) { }
-        Intent intent = new Intent(this, ViewAccountActivity.class);
-        startActivity(intent);
+        CreateDialogFragment dialog = new CreateDialogFragment();
+        dialog.show(getSupportFragmentManager(), "createDialog");
     }
 
     public int getFormId(String formName){
@@ -198,12 +129,77 @@ public class CreateAccountActivity extends AppCompatActivity implements Creatabl
     }
 
     // установка обработчика выбора даты
-    DatePickerDialog.OnDateSetListener d=new DatePickerDialog.OnDateSetListener() {
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            date.set(Calendar.YEAR, year);
-            date.set(Calendar.MONTH, monthOfYear);
-            date.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            setInitialDate();
-        }
+    DatePickerDialog.OnDateSetListener d= (view, year, monthOfYear, dayOfMonth) -> {
+        date.set(Calendar.YEAR, year);
+        date.set(Calendar.MONTH, monthOfYear);
+        date.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        setInitialDate();
     };
+
+    @Override
+    public void create() {
+        try {
+            //databaseAdapter = new DatabaseAdapter(this.getApplicationContext());
+            String surname = ((EditText)findViewById(R.id.Surname)).getText().toString();
+            String name = ((EditText)findViewById(R.id.Name)).getText().toString();
+            String patronymic = ((EditText)findViewById(R.id.Patronymic)).getText().toString();
+            String passport = ((EditText)findViewById(R.id.Passport)).getText().toString();
+            String address = ((EditText)findViewById(R.id.Address)).getText().toString();
+
+            String oldDateString = ((TextView)findViewById(R.id.DateOfBirth)).getText().toString();
+            String newDateString;
+
+            @SuppressLint("SimpleDateFormat")
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(OLD_FORMAT);
+            Date date = simpleDateFormat.parse(oldDateString);
+            simpleDateFormat.applyPattern(NEW_FORMAT);
+            newDateString = simpleDateFormat.format(date);
+            Date newDate = simpleDateFormat.parse(newDateString);
+            java.sql.Date sqlDate = new java.sql.Date(newDate.getTime());
+            String phone = ((EditText)findViewById(R.id.PhoneNumber)).getText().toString();
+
+            String educationForm = spinner.getSelectedItem().toString();
+
+            boolean isAimed = ((CheckBox) findViewById(R.id.IsAimed)).isChecked();
+            boolean isWithoutExams = ((CheckBox) findViewById(R.id.IsWithoutExams)).isChecked();
+            boolean isBudget = ((CheckBox) findViewById(R.id.IsBudget)).isChecked();
+            boolean isOutOfCompetitions = ((CheckBox) findViewById(R.id.IsOutOfCompetitions)).isChecked();
+
+            String profSubj1EE = ((EditText)findViewById(R.id.ProfSubj1EE)).getText().toString();
+            String profSubj2EE = ((EditText)findViewById(R.id.ProfSubj2EE)).getText().toString();
+            String subj3EE = ((EditText)findViewById(R.id.Subj3EE)).getText().toString();
+            String certificateScoreX10 = ((EditText)findViewById(R.id.CertificateScoreX10)).getText().toString();
+
+            boolean isAgreeForPayment = ((CheckBox) findViewById(R.id.IsAgreeForPayment)).isChecked();
+
+
+            try {
+                ConnectionHelper connectionHelper = new ConnectionHelper();
+                connection = connectionHelper.connection();
+                if (connection != null) {
+                    String query = "INSERT INTO ENROLLEE VALUES (" + USER_ID + ", N'" + surname + "', N'" +
+                            name + "', N'" + patronymic + "', N'" + passport + "', N'" + address +
+                            "', '" + sqlDate + "', '" + phone + "', " + getFormId(educationForm) +
+                            ", " + convertBooleanToInt(isAimed) + ", " +
+                            convertBooleanToInt(isWithoutExams) + ", " +
+                            convertBooleanToInt(isBudget) + ", " +
+                            convertBooleanToInt(isOutOfCompetitions) + ", " +
+                            Integer.parseInt(profSubj1EE) + ", " + Integer.parseInt(profSubj2EE) +
+                            ", " + Integer.parseInt(subj3EE)
+                            + ", " + Double.parseDouble(certificateScoreX10) + ", " +
+                            convertBooleanToInt(isAgreeForPayment) + ")";
+                    Statement statement = connection.createStatement();
+                    statement.executeUpdate(query);
+
+                } else {
+                    ConnectionResult = "Check Connection";
+                }
+            } catch (Exception exception){
+                ConnectionResult = exception.getMessage();
+            }
+        }
+        catch (Exception exception) { }
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
 }

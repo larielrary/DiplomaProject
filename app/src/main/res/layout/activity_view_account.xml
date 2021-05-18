@@ -13,8 +13,22 @@
         tools:context=".ui.account.ViewAccountActivity">
 
         <TextView
+            android:id="@+id/SurnameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp"
+            android:ems="10"
+            android:textColor="@color/purple_200"
+            android:text="Фамилия"
+            android:inputType="textMultiLine"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/Surname"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:ems="10"
@@ -22,12 +36,26 @@
             android:inputType="textMultiLine"
 
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/NameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:ems="10"
+            android:text="Имя"
+            android:inputType="textMultiLine"
+            android:textColor="@color/purple_200"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/SurnameLabel" />
+
+        <TextView
             android:id="@+id/Name"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:ems="10"
@@ -35,61 +63,136 @@
             android:inputType="textMultiLine"
 
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Surname" />
 
         <TextView
-            android:id="@+id/Patronymic"
-            android:layout_width="match_parent"
+            android:id="@+id/PatronymicLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:layout_marginStart="30dp"
+            android:text="Отчество"
+            android:inputType="textMultiLine"
+            android:textColor="@color/purple_200"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/NameLabel" />
+
+        <TextView
+            android:id="@+id/Patronymic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Отчество"
             android:inputType="textMultiLine"
-
+            app:layout_constraintEnd_toEndOf="parent"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@+id/Name" />
 
         <TextView
-            android:id="@+id/Passport"
-            android:layout_width="match_parent"
+            android:id="@+id/PassportLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="8"
+            android:text="Серия и номер паспорта"
+            android:inputType="textMultiLine"
+            android:layout_marginStart="30dp"
+            android:textColor="@color/purple_200"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/PatronymicLabel" />
+
+        <TextView
+            android:id="@+id/Passport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Серия и номер паспорта"
             android:inputType="textMultiLine"
-
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Patronymic" />
 
         <TextView
-            android:id="@+id/Address"
-            android:layout_width="match_parent"
+            android:id="@+id/AddressLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Адрес"
+            android:inputType="textMultiLine"
+            android:textColor="@color/purple_200"
+            android:layout_marginStart="30dp"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/PassportLabel" />
+
+        <TextView
+            android:id="@+id/Address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
             android:ems="10"
             android:hint="Адрес"
             android:inputType="textMultiLine"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Passport" />
 
         <TextView
-            android:id="@+id/DateOfBirth"
-            android:layout_width="match_parent"
+            android:id="@+id/DateOfBirthLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:text="Дата рождения"
+            android:layout_marginStart="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:inputType="date"
+            android:textColor="@color/purple_200"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/Address" />
+
+        <TextView
+            android:id="@+id/DateOfBirth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Дата рождения"
+            app:layout_constraintEnd_toEndOf="parent"
             android:inputType="date"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@+id/Address" />
 
         <TextView
-            android:id="@+id/PhoneNumber"
-            android:layout_width="match_parent"
+            android:id="@+id/PhoneNumberLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:text="Номер телефона"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="30dp"
+            android:inputType="phone"
+            android:textColor="@color/purple_200"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/DateOfBirthLabel"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/PhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Номер телефона"
+            app:layout_constraintEnd_toEndOf="parent"
             android:inputType="phone"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@+id/DateOfBirth"
@@ -99,12 +202,14 @@
             android:id="@+id/FormTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:text="Форма обучения"
             android:textSize="16sp"
+            android:ems="10"
+            android:layout_marginStart="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/PhoneNumber"
+            android:textColor="@color/purple_200"
+            app:layout_constraintTop_toBottomOf="@+id/PhoneNumberLabel"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -112,23 +217,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="168dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
             android:hint="Форма обучения"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:ems="10"
             app:layout_constraintTop_toBottomOf="@+id/PhoneNumber"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/IsAimedTextView"
-            android:layout_width="252dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="218dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:text="Участие в конкурсе по целевому направлению"
             android:textSize="16sp"
+            android:layout_marginStart="30dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/EducationForm"
+            android:textColor="@color/purple_200"
+            app:layout_constraintTop_toBottomOf="@+id/FormTextView"
             tools:ignore="MissingConstraints" />
 
 
@@ -137,8 +244,8 @@
             android:layout_width="30dp"
             android:layout_height="21dp"
             android:layout_marginLeft="28dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/IsAimedTextView"
             app:layout_constraintTop_toBottomOf="@+id/EducationForm"
@@ -146,12 +253,13 @@
 
         <TextView
             android:id="@+id/IsWithoutExamsTextView"
-            android:layout_width="300dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="238dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
             android:text="Участие в конкурсе без вступительных экзаменов"
             android:textSize="16sp"
+            android:textColor="@color/purple_200"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/IsAimedTextView"
             tools:ignore="MissingConstraints" />
@@ -161,8 +269,8 @@
             android:layout_width="30dp"
             android:layout_height="21dp"
             android:layout_marginLeft="28dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/IsWithoutExamsTextView"
             app:layout_constraintTop_toBottomOf="@+id/IsAimed"
@@ -172,10 +280,11 @@
             android:id="@+id/IsBudgetsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
             android:text="Участие в конкурсе на бюджет"
             android:textSize="16sp"
+            android:textColor="@color/purple_200"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/IsWithoutExamsTextView"
             tools:ignore="MissingConstraints" />
@@ -186,8 +295,8 @@
             android:layout_width="30dp"
             android:layout_height="21dp"
             android:layout_marginLeft="148dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/IsBudgetsTextView"
             app:layout_constraintTop_toBottomOf="@+id/IsWithoutExams"
@@ -197,9 +306,10 @@
             android:id="@+id/IsOutOfCompetitionsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
             android:text="Участие вне конкурса"
+            android:textColor="@color/purple_200"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/IsBudgetsTextView"
@@ -211,68 +321,129 @@
             android:layout_width="30dp"
             android:layout_height="21dp"
             android:layout_marginLeft="216dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/IsOutOfCompetitionsTextView"
             app:layout_constraintTop_toBottomOf="@+id/IsBudget"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/ProfSubj1EE"
-            android:layout_width="match_parent"
+            android:id="@+id/ProfSubj1EELabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="25dp"
             android:ems="10"
-            android:hint="Балл по первому профильному предмету"
+            android:layout_marginStart="30dp"
+            android:text="Балл по первому профильному предмету"
+            android:textColor="@color/purple_200"
             android:inputType="textMultiLine"
             android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IsOutOfCompetitionsTextView" />
+
+        <TextView
+            android:id="@+id/ProfSubj1EE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="50dp"
+            android:inputType="textMultiLine"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/IsOutOfCompetitions" />
 
         <TextView
-            android:id="@+id/ProfSubj2EE"
-            android:layout_width="match_parent"
+            android:id="@+id/ProfSubj2EELabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="Балл по второму профильному предмету"
+            android:inputType="textMultiLine"
+            android:text="Балл по второму профильному предмету"
+            android:textColor="@color/purple_200"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ProfSubj1EELabel" />
+
+        <TextView
+            android:id="@+id/ProfSubj2EE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="50dp"
             android:inputType="textMultiLine"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ProfSubj1EE"
             app:layout_constraintTop_toBottomOf="@+id/ProfSubj1EE" />
 
         <TextView
-            android:id="@+id/Subj3EE"
-            android:layout_width="match_parent"
+            android:id="@+id/Subj3EELabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="Балл по третьему предмету"
+            android:inputType="textMultiLine"
+            android:text="Балл по третьему предмету"
+            android:textColor="@color/purple_200"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ProfSubj2EELabel" />
+
+        <TextView
+            android:id="@+id/Subj3EE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+
+            android:layout_marginEnd="50dp"
             android:inputType="textMultiLine"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ProfSubj2EE" />
 
         <TextView
-            android:id="@+id/CertificateScoreX10"
-            android:layout_width="match_parent"
+            android:id="@+id/CertificateScoreX10Label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="Средний балл документа об образовании * 10"
+            android:inputType="textMultiLine"
+            android:text="Средний балл документа об образовании * 10"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/purple_200"
+            app:layout_constraintTop_toBottomOf="@+id/Subj3EELabel"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/CertificateScoreX10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="50dp"
             android:inputType="textMultiLine"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Subj3EE" />
 
         <TextView
             android:id="@+id/IsAgreeForPaymentTextView"
-            android:layout_width="302dp"
+            android:layout_width="249dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
             android:inputType="textMultiLine"
             android:text="Согласие на участие в конкурсе на платную форму обучения"
             android:textSize="16sp"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/purple_200"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CertificateScoreX10"
+            app:layout_constraintTop_toBottomOf="@+id/CertificateScoreX10Label"
             tools:ignore="MissingConstraints" />
 
 
@@ -281,11 +452,11 @@
             android:layout_width="30dp"
             android:layout_height="21dp"
             android:layout_marginLeft="76dp"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toRightOf="@+id/IsAgreeForPaymentTextView"
-            app:layout_constraintTop_toBottomOf="@+id/CertificateScoreX10"
+            app:layout_constraintTop_toBottomOf="@+id/CertificateScoreX10Label"
             tools:ignore="MissingConstraints" />
 
 

@@ -17,26 +17,26 @@ import java.sql.Statement;
 
 public class ViewAccountActivity extends AppCompatActivity {
 
-    String ConnectionResult="";
+    String ConnectionResult = "";
     Connection connection;
     int USER_ID;
-    TextView surname;
-    TextView name;
-    TextView patronymic;
-    TextView passport;
-    TextView address;
-    TextView dateOfBirth;
-    TextView phoneNumber;
-    TextView educationForm;
-    CheckBox isAimed;
-    CheckBox isWithoutExams;
-    CheckBox isBudget;
-    CheckBox isOutOfCompetitions;
-    TextView profSubj1;
-    TextView profSubj2;
-    TextView subj3;
-    TextView certificate;
-    CheckBox isAgreeForPayment;
+    TextView surnameT;
+    TextView nameT;
+    TextView patronymicT;
+    TextView passportT;
+    TextView addressT;
+    TextView dateOfBirthT;
+    TextView phoneNumberT;
+    TextView educationFormT;
+    CheckBox isAimedC;
+    CheckBox isWithoutExamsC;
+    CheckBox isBudgetC;
+    CheckBox isOutOfCompetitionsC;
+    TextView profSubj1T;
+    TextView profSubj2T;
+    TextView subj3T;
+    TextView certificateT;
+    CheckBox isAgreeForPaymentC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,29 +45,33 @@ public class ViewAccountActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
         USER_ID = intent.getIntExtra("userId", 0);
-        surname = findViewById(R.id.Surname);
-        name = findViewById(R.id.Name);
-        patronymic = findViewById(R.id.Patronymic);
-        passport = findViewById(R.id.Passport);
-        address = findViewById(R.id.Address);
-        dateOfBirth = findViewById(R.id.DateOfBirth);
-        phoneNumber = findViewById(R.id.PhoneNumber);
-        educationForm = findViewById(R.id.EducationForm);
-        isAimed = findViewById(R.id.IsAimed);
-        isWithoutExams = findViewById(R.id.IsWithoutExams);
-        isBudget = findViewById(R.id.IsBudget);
-        isOutOfCompetitions = findViewById(R.id.IsOutOfCompetitions);
-        profSubj1 = findViewById(R.id.ProfSubj1EE);
-        profSubj2 = findViewById(R.id.ProfSubj2EE);
-        subj3 = findViewById(R.id.Subj3EE);
-        certificate = findViewById(R.id.CertificateScoreX10);
-        isAgreeForPayment = findViewById(R.id.IsAgreeForPayment);
+        surnameT = findViewById(R.id.Surname);
+        nameT = findViewById(R.id.Name);
+        patronymicT = findViewById(R.id.Patronymic);
+        passportT = findViewById(R.id.Passport);
+        addressT = findViewById(R.id.Address);
+        dateOfBirthT = findViewById(R.id.DateOfBirth);
+        phoneNumberT = findViewById(R.id.PhoneNumber);
+        educationFormT = findViewById(R.id.EducationForm);
+        isAimedC = findViewById(R.id.IsAimed);
+        isWithoutExamsC = findViewById(R.id.IsWithoutExams);
+        isBudgetC = findViewById(R.id.IsBudget);
+        isOutOfCompetitionsC = findViewById(R.id.IsOutOfCompetitions);
+        profSubj1T = findViewById(R.id.ProfSubj1EE);
+        profSubj2T = findViewById(R.id.ProfSubj2EE);
+        subj3T = findViewById(R.id.Subj3EE);
+        certificateT = findViewById(R.id.CertificateScoreX10);
+        isAgreeForPaymentC = findViewById(R.id.IsAgreeForPayment);
         viewInfo();
     }
 
 
     @SuppressLint("SetTextI18n")
-    public void viewInfo(){
+    public void viewInfo() {
+        String surname, name, patronymic, passport, address, dateOfBirth, phoneNumber, educationForm;
+        boolean isAimed, isWithoutExams, isBudget, isOutOfCompetitions, isAgreeForPayment;
+        int profSubj1, profSubj2, subj3;
+        double certificate;
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connection = connectionHelper.connection();
@@ -79,26 +83,30 @@ public class ViewAccountActivity extends AppCompatActivity {
                         "EDUCATIONFORM f ON f.FormId = e.FormID WHERE e.UserID=" + USER_ID + "";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
-                if(resultSet != null){
-
-                        //String surnameS = resultSet.getString("Surname");
-                        surname.setText(resultSet.getString("Surname"));
-                        name.setText(resultSet.getString("e.Name"));
-                        patronymic.setText(resultSet.getString("Patronymic"));
-                        passport.setText(resultSet.getString("Passport"));
-                        address.setText(resultSet.getString("Address"));
-                        dateOfBirth.setText(resultSet.getDate("DateOfBirth").toString());
-                        phoneNumber.setText(resultSet.getString("PhoneNumber"));
-                        educationForm.setText(resultSet.getString("f.Name"));
-                        isAimed.setChecked(convertIntToBoolean(resultSet.getInt("IsAimed")));
-                        isWithoutExams.setChecked(convertIntToBoolean(resultSet.getInt("IsWithoutEntranceExams")));
-                        isBudget.setChecked(convertIntToBoolean(resultSet.getInt("IsBudget")));
-                        isOutOfCompetitions.setChecked(convertIntToBoolean(resultSet.getInt("IsOutOfCompetition")));
-                        profSubj1.setText(resultSet.getInt("ProfSubj1EE"));
-                        profSubj2.setText(resultSet.getInt("ProfSubj2EE"));
-                        subj3.setText(resultSet.getInt("Subj3EE"));
-                        certificate.setText(Double.toString(resultSet.getDouble("CertificateScoreX10")));
-                        isAgreeForPayment.setChecked(convertIntToBoolean(resultSet.getInt("IsAgreeForPayment")));
+                if (resultSet != null) {
+                    while (resultSet.next()) {
+                        surname = resultSet.getString(1);
+                        name = resultSet.getString(2);
+                        patronymic = resultSet.getString(3);
+                        passport = resultSet.getString(4);
+                        address = resultSet.getString(5);
+                        dateOfBirth = resultSet.getDate(6).toString();
+                        phoneNumber = resultSet.getString(7);
+                        educationForm = resultSet.getString(8);
+                        isAimed = convertIntToBoolean(resultSet.getInt(9));
+                        isWithoutExams = convertIntToBoolean(resultSet.getInt(10));
+                        isBudget = convertIntToBoolean(resultSet.getInt(11));
+                        isOutOfCompetitions = convertIntToBoolean(resultSet.getInt(12));
+                        profSubj1 = resultSet.getInt(13);
+                        profSubj2 = resultSet.getInt(14);
+                        subj3 = resultSet.getInt(15);
+                        certificate = resultSet.getDouble(16);
+                        isAgreeForPayment = convertIntToBoolean(resultSet.getInt(16));
+                        setData(surname, name, patronymic, passport, address, dateOfBirth,
+                                phoneNumber, educationForm, isAimed, isWithoutExams, isBudget,
+                                isOutOfCompetitions, profSubj1, profSubj2, subj3,
+                                certificate, isAgreeForPayment);
+                    }
                 }
             } else {
                 ConnectionResult = "Check Connection";
@@ -108,7 +116,33 @@ public class ViewAccountActivity extends AppCompatActivity {
         }
     }
 
-    public boolean convertIntToBoolean(int intValue){
+
+    @SuppressLint("SetTextI18n")
+    public void setData(String surname, String name, String patronymic, String passport,
+                        String address, String dateOfBirth, String phoneNumber,
+                        String educationForm, boolean isAimed, boolean isWithoutExams,
+                        boolean isBudget, boolean isOutOfCompetitions, int profSubj1, int profSubj2,
+                        int subj3, double certificate, boolean isAgreeForPayment) {
+        surnameT.setText(surname);
+        nameT.setText(name);
+        patronymicT.setText(patronymic);
+        passportT.setText(passport);
+        addressT.setText(address);
+        dateOfBirthT.setText(dateOfBirth);
+        phoneNumberT.setText(phoneNumber);
+        educationFormT.setText(educationForm);
+        isAimedC.setChecked(isAimed);
+        isWithoutExamsC.setChecked(isWithoutExams);
+        isBudgetC.setChecked(isBudget);
+        isOutOfCompetitionsC.setChecked(isOutOfCompetitions);
+        profSubj1T.setText(Integer.toString(profSubj1));
+        profSubj2T.setText(Integer.toString(profSubj2));
+        subj3T.setText(Integer.toString(subj3));
+        certificateT.setText(Double.toString(certificate));
+        isAgreeForPaymentC.setChecked(isAgreeForPayment);
+    }
+
+    public boolean convertIntToBoolean(int intValue) {
         return intValue > 0;
     }
 }
