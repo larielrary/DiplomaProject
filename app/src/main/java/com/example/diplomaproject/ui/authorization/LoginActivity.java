@@ -52,13 +52,18 @@ public class LoginActivity extends AppCompatActivity {
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connection = connectionHelper.connection();
+            int id = 0;
             if (connection != null) {
-                String query = "SELECT UserID FROM ENROLLEEUSER WHERE Login='" + email +
-                        "' AND Password='" + pass + "'";
+                String query = "SELECT UserID FROM ENROLLEEUSER WHERE Login=N'" + email +
+                        "' AND Password=N'" + pass + "'";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 if(resultSet != null){
+                    while (resultSet.next()){
+                        id = resultSet.getInt("UserID");
+                    }
                     Intent intent = new Intent(getBaseContext(), ViewAccountActivity.class);
+                    intent.putExtra("userId", id);
                     startActivity(intent);
                 }
             } else {
@@ -85,13 +90,22 @@ public class LoginActivity extends AppCompatActivity {
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connection = connectionHelper.connection();
+            int id = 0;
             if (connection != null) {
                 String query = "INSERT INTO ENROLLEEUSER VALUES ('"+
                         email + "', '" + pass + "')";
                 Statement statement = connection.createStatement();
-                int resultSet = statement.executeUpdate(query);
-                if(resultSet != 0){
+                statement.executeUpdate(query);
+
+                String selectQuery = "SELECT UserID FROM ENROLLEEUSER WHERE Login=N'" + email +
+                        "' AND Password=N'" + pass + "'";
+                ResultSet resultSet = statement.executeQuery(selectQuery);
+                if(resultSet != null){
+                    while (resultSet.next()){
+                        id = resultSet.getInt("UserID");
+                    }
                     Intent intent = new Intent(getBaseContext(), CreateAccountActivity.class);
+                    intent.putExtra("userId", id);
                     startActivity(intent);
                 }
             } else {
