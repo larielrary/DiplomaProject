@@ -1,5 +1,6 @@
 package com.example.diplomaproject.ui.web;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,20 +12,22 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.diplomaproject.MainActivity;
 import com.example.diplomaproject.R;
 
-public class WebFragment extends Fragment {
 
+public class WebFragment extends Fragment {
     TextView contentView;
     String contentText = null;
     WebView webView;
+    String url = MyRunTimesData.getMyStringData();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_web, container, false);
-        contentView = (TextView) view.findViewById(R.id.content);
-        webView = (WebView) view.findViewById(R.id.webView);
+        View root = inflater.inflate(R.layout.fragment_web, container, false);
+        contentView = root.findViewById(R.id.content);
+        webView = root.findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public void onReceivedError(WebView view, int errorCode,
@@ -33,11 +36,14 @@ public class WebFragment extends Fragment {
             }
 
         });
-        webView.loadUrl("https://www.gstu.by/");
+        webView.loadUrl(url);
         if (contentText != null) {
             webView.loadData(contentText, "text/html; charset=utf-8", "utf-8");
         }
-
-        return view;
+        return root;
+    }
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        ((MainActivity)context).getSupportActionBar().setTitle("Абитуриент ГГТУ");
     }
 }

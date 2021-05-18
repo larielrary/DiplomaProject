@@ -1,8 +1,6 @@
 package com.example.diplomaproject.ui.mainpage;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +10,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.diplomaproject.R;
+import com.example.diplomaproject.ui.web.MyRunTimesData;
+import com.example.diplomaproject.ui.web.WebFragment;
 
 
 public class MainPageFragment extends Fragment implements View.OnClickListener {
@@ -24,10 +25,11 @@ public class MainPageFragment extends Fragment implements View.OnClickListener {
     ImageButton sokr;
     ImageButton excursia;
     ImageButton admission;
+    View root;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_main_page, container, false);
+        root = inflater.inflate(R.layout.fragment_main_page, container, false);
 
         speciality = root.findViewById(R.id.speciality);
         campaign = root.findViewById(R.id.campaign);
@@ -46,14 +48,19 @@ public class MainPageFragment extends Fragment implements View.OnClickListener {
     }
 
 
+
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.speciality:
                 try {
-                    Intent viewIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://abiturient.gstu.by/specialties"));
-                    startActivity(viewIntent);
+                    MyRunTimesData.setMyStringData("https://abiturient.gstu.by/specialties");
+                    Fragment fragment = new WebFragment();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragment_main_page, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
                 catch (Exception e) {
                     Toast.makeText(getActivity().getApplicationContext(), "Can't connect to Internet",
@@ -63,48 +70,72 @@ public class MainPageFragment extends Fragment implements View.OnClickListener {
 
             case R.id.campaign:
                 try {
-                    Intent viewIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://abiturient.gstu.by/course-of-documents-acceptance"));
-                    startActivity(viewIntent);
+                    MyRunTimesData.setMyStringData("https://abiturient.gstu.by/course-of-documents-acceptance");
+                    Fragment fragment = new WebFragment();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragment_main_page, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
                 catch (Exception e) {
                     Toast.makeText(getActivity().getApplicationContext(), "Can't connect to Internet",
                             Toast.LENGTH_SHORT).show();
                 }
                 break;
+
             case R.id.regulations:
                 try {
-                    Intent viewIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://abiturient.gstu.by/regulations"));
-                    startActivity(viewIntent);
+                    MyRunTimesData.setMyStringData("https://abiturient.gstu.by/regulations");
+                    Fragment fragment = new WebFragment();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragment_main_page, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
                 catch (Exception e) {
                     Toast.makeText(getActivity().getApplicationContext(), "Can't connect to Internet",
                             Toast.LENGTH_SHORT).show();
                 }
                 break;
+
             case R.id.sokr:
                 try {
-                    Intent viewIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://abiturient.gstu.by/higher-education-in-reduced-terms-of-training"));
-                    startActivity(viewIntent);
+                    MyRunTimesData.setMyStringData("https://abiturient.gstu.by/higher-education-in-reduced-terms-of-training");
+                    Fragment fragment = new WebFragment();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragment_main_page, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
                 catch (Exception e) {
                     Toast.makeText(getActivity().getApplicationContext(), "Can't connect to Internet",
                             Toast.LENGTH_SHORT).show();
                 }
                 break;
+
             case R.id.excursia:
                 try {
-                    Intent viewIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://abiturient.gstu.by/excursion"));
-                    startActivity(viewIntent);
+                    MyRunTimesData.setMyStringData("https://abiturient.gstu.by/excursion");
+                    Fragment fragment = new WebFragment();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragment_main_page, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
                 catch (Exception e) {
                     Toast.makeText(getActivity().getApplicationContext(), "Can't connect to Internet",
                             Toast.LENGTH_SHORT).show();
                 }
                 break;
+
             case R.id.admission:
                 try {
-                    Intent viewIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://abiturient.gstu.by/how-to-enter-the-GSTU-PO-Sukhoi"));
-                    startActivity(viewIntent);
+                    MyRunTimesData.setMyStringData("https://abiturient.gstu.by/how-to-enter-the-GSTU-PO-Sukhoi");
+                    Fragment fragment = new WebFragment();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragment_main_page, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
                 catch (Exception e) {
                     Toast.makeText(getActivity().getApplicationContext(), "Can't connect to Internet",
