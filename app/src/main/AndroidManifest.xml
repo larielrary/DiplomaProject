@@ -24,14 +24,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DiplomaProject">
         <activity
-            android:name=".ui.web.WebActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="Наш сайт"/>
-        <activity
-            android:name=".ui.speciality.SpecialityActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="Специальности"/>
-        <activity
             android:name=".ui.account.ViewAccountActivity"
             android:label="Просмотр аккаунта"
             android:parentActivityName=".MainActivity" />
@@ -42,14 +34,6 @@
         <activity
             android:name=".ui.account.CreateAccountActivity"
             android:label="Создание аккаунта"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".ui.sendemail.SendEmailActivity"
-            android:label="Письмо разработчику"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".ui.calculation.CalculationActivity"
-            android:label="Калькулятор баллов"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
