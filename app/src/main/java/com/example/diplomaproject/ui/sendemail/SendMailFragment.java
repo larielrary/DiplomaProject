@@ -45,5 +45,7 @@ public class SendMailFragment extends Fragment implements View.OnClickListener{
         email.setType("message/rfc822");
 
         startActivity(Intent.createChooser(email, "Выберите почтовый клиент:"));
+        editTextMessage.setText("");
+        editTextSubject.setText("");
     }
 }
