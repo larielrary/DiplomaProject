@@ -19,6 +19,7 @@ public class SiteFragment extends Fragment {
     TextView contentView;
     String contentText = null;
     WebView webView;
+    String url = "https://www.gstu.by/";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,7 +35,7 @@ public class SiteFragment extends Fragment {
             }
 
         });
-        webView.loadUrl("https://www.gstu.by/");
+        webView.loadUrl(url);
         if (contentText != null) {
             webView.loadData(contentText, "text/html; charset=utf-8", "utf-8");
         }

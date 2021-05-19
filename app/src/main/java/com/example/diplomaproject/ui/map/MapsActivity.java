@@ -33,7 +33,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         LatLng gstu = new LatLng(52.4068247, 30.9370456);
         googleMap.addMarker(new MarkerOptions().position(gstu)
-                .title("ГГТУ им. П. О. Сухого"));
+                .title("ГГТУ им. П. О. Сухого").snippet("троллейбусы № 2, 19, 20, автобусы № 16, 17, 20, 21"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gstu, 15));
     }
 }

@@ -25,19 +25,12 @@
             android:icon="@drawable/calculate"
             android:title="Калькулятор баллов" />
         <item
-            android:id="@+id/nav_speciality"
-            android:icon="@drawable/speciality"
-            android:title="Специальности"
-            />
-        <item
             android:id="@+id/nav_contacts"
             android:icon="@drawable/contact"
-            android:title="Контакты"
-            />
+            android:title="Контакты" />
         <item
             android:id="@+id/nav_mail"
             android:icon="@drawable/mail"
-            android:title="Связь с разработчиком"
-            />
+            android:title="Связь с разработчиком" />
     </group>
 </menu>

@@ -25,6 +25,7 @@
     <string name="mtf_link"><a href="https://mtf.gstu.by/">Механико-технологический факультет </a></string>
     <string name="msf_link"><a href="https://msf.gstu.by/">Машиностроительный факультет </a></string>
     <string name="gef_link"><a href="https://gef.gstu.by/">Гуманитарно-экономический факультет </a></string>
+
     <string name="ef_link"><a href="https://ef.gstu.by/">Энергетический факультет </a></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

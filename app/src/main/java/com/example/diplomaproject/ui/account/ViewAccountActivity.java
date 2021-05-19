@@ -70,8 +70,7 @@ public class ViewAccountActivity extends AppCompatActivity {
     public void viewInfo() {
         String surname, name, patronymic, passport, address, dateOfBirth, phoneNumber, educationForm;
         boolean isAimed, isWithoutExams, isBudget, isOutOfCompetitions, isAgreeForPayment;
-        int profSubj1, profSubj2, subj3;
-        double certificate;
+        int profSubj1, profSubj2, subj3, certificate;
         try {
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connection = connectionHelper.connection();
@@ -100,7 +99,7 @@ public class ViewAccountActivity extends AppCompatActivity {
                         profSubj1 = resultSet.getInt(13);
                         profSubj2 = resultSet.getInt(14);
                         subj3 = resultSet.getInt(15);
-                        certificate = resultSet.getDouble(16);
+                        certificate = resultSet.getInt(16);
                         isAgreeForPayment = convertIntToBoolean(resultSet.getInt(16));
                         setData(surname, name, patronymic, passport, address, dateOfBirth,
                                 phoneNumber, educationForm, isAimed, isWithoutExams, isBudget,
@@ -122,7 +121,7 @@ public class ViewAccountActivity extends AppCompatActivity {
                         String address, String dateOfBirth, String phoneNumber,
                         String educationForm, boolean isAimed, boolean isWithoutExams,
                         boolean isBudget, boolean isOutOfCompetitions, int profSubj1, int profSubj2,
-                        int subj3, double certificate, boolean isAgreeForPayment) {
+                        int subj3, int certificate, boolean isAgreeForPayment) {
         surnameT.setText(surname);
         nameT.setText(name);
         patronymicT.setText(patronymic);
@@ -138,7 +137,7 @@ public class ViewAccountActivity extends AppCompatActivity {
         profSubj1T.setText(Integer.toString(profSubj1));
         profSubj2T.setText(Integer.toString(profSubj2));
         subj3T.setText(Integer.toString(subj3));
-        certificateT.setText(Double.toString(certificate));
+        certificateT.setText(Integer.toString(certificate));
         isAgreeForPaymentC.setChecked(isAgreeForPayment);
     }
 
